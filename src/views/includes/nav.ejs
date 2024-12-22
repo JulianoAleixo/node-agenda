@@ -1,5 +1,8 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="/">Agenda</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-success position-fixed w-100 z-1" style="top: 0">
+    <a class="navbar-brand" href="/">
+        <img src="/assets/img/node-js.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        Agenda
+    </a>
     <button
         class="navbar-toggler"
         type="button"
@@ -14,17 +17,24 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
+            <li class="nav-item d-flex align-items-center">
+                <div class="custom-control custom-switch nav-link">
+                    <input type="checkbox" class="custom-control-input bg-dark" id="darkSwitch">
+                    <label class="custom-control-label text-light" for="darkSwitch">Dark Mode</label>
+                </div>
+            </li>
+
             <li class="nav-item">
-                <a class="nav-link" href="/contact/index">Register contact</a>
+                <a class="nav-link text-light" href="/contact/index">Register contact</a>
             </li>
 
             <% if (user) { %>
                 <li class="nav-item">
-                    <a class="nav-link" href="/login/logout">Logout</a>
+                    <a class="nav-link text-light" href="/login/logout">Logout</a>
                 </li>
             <% } else { %>
                 <li class="nav-item">
-                    <a class="nav-link" href="/login/index">Login</a>
+                    <a class="nav-link text-light" href="/login/index">Login</a>
                 </li>
             <% } %>
         </ul>

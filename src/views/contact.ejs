@@ -1,50 +1,51 @@
 <%- include('includes/head') %>
-    <%- include('includes/nav') %>
+<%- include('includes/nav') %>
 
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-2"></div>
+<div class="container text-light" style="margin-top: 64px;">
+    <div class="row">
+        <div class="col-lg-2"></div>
 
-                <div class="col-lg-8 my-3">
-                    <h1 class="text-center">Contacts</h1>
-                    <p class="text-center lead">Create or edit your's conntacts below</p>
+        <div class="col-lg-8 my-3">
+            <h1 class="text-center">Contacts</h1>
+            <p class="text-center lead">Create or edit your's conntacts below</p>
 
-                    <%- include('includes/messages') %>
-                    
-                    <% if (contact._id) { %>
-                    <form action="/contact/edit/<%= contact._id %>" method="POST" class="form-contact">
-                    <% } else { %>
-                    <form action="/contact/register" method="POST" class="form-contact">
-                    <% } %>
-                        <input type="hidden" name="_csrf" value=<%=csrfToken %> />
-                        <div class="form-group">
-                            <label>Name</label>
-                            <input value="<%= contact.name %>" type="text" class="form-control" name="name" aria-describedby="name-error"/>
-                            <small id="name-error" class="form-text text-danger d-none"></small>
-                        </div>
-                        <div class="form-group">
-                            <label>Surname</label>
-                            <input value="<%= contact.surname %>" type="text" class="form-control" name="surname" />
-                        </div>
-                        <div class="form-group">
-                            <label>Email</label>
-                            <input value="<%= contact.email %>" type="email" class="form-control" name="email" aria-describedby="email-error"/>
-                            <small id="email-error" class="form-text text-danger d-none"></small>
-                        </div>
-                        <div class="form-group">
-                            <label>Phone</label>
-                            <input value="<%= contact.phone %>" type="tel" class="form-control" name="phone" aria-describedby="phone-error" />
-                            <small id="phone-error" class="form-text text-danger d-none"></small>
-                        </div>
-                        <button type="submit" class="btn btn-primary">
-                            Save
-                        </button>
-                    </form>
-
+            <%- include('includes/messages') %>
+            
+            <% if (contact._id) { %>
+            <form action="/contact/edit/<%= contact._id %>" method="POST" class="form-contact">
+            <% } else { %>
+            <form action="/contact/register" method="POST" class="form-contact">
+            <% } %>
+                <input type="hidden" name="_csrf" value=<%=csrfToken %> />
+                <div class="form-group">
+                    <label>Name</label>
+                    <input value="<%= contact.name %>" type="text" class="form-control" name="name" aria-describedby="name-error"/>
+                    <small id="name-error" class="form-text text-danger d-none"></small>
                 </div>
-
-                <div class="col-lg-2"></div>
-            </div>
+                <div class="form-group">
+                    <label>Surname</label>
+                    <input value="<%= contact.surname %>" type="text" class="form-control" name="surname" />
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input value="<%= contact.email %>" type="email" class="form-control" name="email" aria-describedby="email-error"/>
+                    <small id="email-error" class="form-text text-danger d-none"></small>
+                </div>
+                <div class="form-group">
+                    <label>Phone</label>
+                    <input value="<%= contact.phone %>" type="tel" class="form-control" name="phone" aria-describedby="phone-error" />
+                    <small id="phone-error" class="form-text text-danger d-none"></small>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-success">
+                        Save
+                    </button>
+                </div>
+            </form>
         </div>
+        
+        <div class="col-lg-2"></div>
+    </div>
+</div>
 
-        <%- include('includes/footer') %>
+<%- include('includes/footer') %>
