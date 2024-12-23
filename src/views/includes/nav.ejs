@@ -19,7 +19,9 @@
         <ul class="navbar-nav ml-auto">
             <li class="nav-item d-flex align-items-center">
                 <div class="custom-control custom-switch nav-link">
-                    <input type="checkbox" class="custom-control-input bg-dark" id="darkSwitch">
+                    <input type="checkbox" class="custom-control-input bg-dark change-theme-input" id="darkSwitch"
+                    <%= theme === 'dark' ? 'checked' : '' %>
+                    >
                     <label class="custom-control-label text-light" for="darkSwitch">Dark Mode</label>
                 </div>
             </li>

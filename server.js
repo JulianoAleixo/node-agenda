@@ -18,6 +18,7 @@ const routes = require("./routes");
 const path = require("path");
 const helmet = require("helmet")
 const csrf = require("csurf");
+const cookieParser = require("cookie-parser");
 const { globalMiddleware, checkCsrfError, csrfMiddleware } = require("./src/middlewares/middleware");
 
 app.use(helmet());
@@ -36,8 +37,10 @@ const sessionOptions = session({
         httpOnly: true,
     },
 });
+
 app.use(sessionOptions);
 app.use(flash());
+app.use(cookieParser());
 
 app.set("views", path.resolve(__dirname, "src", "views"));
 app.set("view engine", "ejs");
