@@ -28,7 +28,6 @@ export default class Contact {
         const emailInput = el.querySelector('input[name="email"]');
         const phoneInput = el.querySelector('input[name="phone"]');
 
-        console.log(nameInput);
         let errors = [];
 
         if (!nameInput.value) {

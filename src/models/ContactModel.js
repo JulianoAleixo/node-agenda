@@ -7,6 +7,7 @@ const ContactSchema = new mongoose.Schema({
     email: { type: String, required: false, default: "" },
     phone: { type: String, required: false, default: "" },
     createdIn: { type: Date, default: Date.now },
+    createdBy: { type: String, required: true }
 });
 
 const ContactModel = mongoose.model("Contact", ContactSchema);
@@ -17,9 +18,12 @@ function Contact(body) {
     this.contact = null;
 }
 
-Contact.prototype.register = async function () {
+Contact.prototype.register = async function (session) {
     this.validate();
     if (this.errors.length > 0) return;
+
+    this.body.createdBy = session.user.email;
+
     this.contact = await ContactModel.create(this.body);
 };
 
@@ -69,8 +73,8 @@ Contact.getById = async function (id) {
     return contact;
 };
 
-Contact.getContacts = async function () {
-    const contacts = await ContactModel.find().sort({ createdIn: 1 });
+Contact.getContacts = async function (userEmail) {
+    const contacts = await ContactModel.find({ createdBy: userEmail }).sort({ createdIn: 1 });
     return contacts;
 };
 

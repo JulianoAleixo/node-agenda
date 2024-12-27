@@ -7,7 +7,7 @@ const contactController = require("./src/controllers/contactController");
 const { loginRequired } = require("./src/middlewares/middleware");
 
 // Home
-route.get("/", homeController.index);
+route.get("/", loginRequired, homeController.index);
 
 // Login
 route.get("/login/index", loginController.index);
