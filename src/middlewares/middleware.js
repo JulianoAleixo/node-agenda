@@ -17,7 +17,6 @@ exports.csrfMiddleware = (req, res, next) => {
 };
 
 exports.loginRequired = (req, res, next) => {
-    console.log(req.path)
     if (!req.session.user && req.path !== "/login/logout") {
         req.flash("errors", "You need to login");
         req.session.save(() => res.redirect("/login/index"));
